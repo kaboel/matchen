@@ -6,14 +6,13 @@ import store from './store'
 import Buefy from "buefy"
 import 'buefy/dist/buefy.css'
 import './assets/css/styles.css'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSmileWink } from '@fortawesome/free-regular-svg-icons'
 
-Vue.use(Buefy, {
-  defaultIconPack: 'fas',
-})
+Vue.use(Buefy)
 
-library.add()
+library.add( faSmileWink )
 
 Vue.component('fa-icon', FontAwesomeIcon)
 

@@ -55,7 +55,8 @@
         {
           "baseIndent": 1
         }
-      ]
+      ],
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [
