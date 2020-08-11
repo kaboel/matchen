@@ -1,4 +1,5 @@
 # matchen
+A Matching Game. Built with [Vue](https://vuejs.org).
 
 ## Project setup
 ```
