@@ -15,8 +15,11 @@ const store = new Vuex.Store({
   },
   actions: {
     startGame: (context) => {
-      router.push({
-        name: 'Main'
+      return new Promise((resolve, reject) => {
+        router.push({
+          name: 'Main'
+        }).then(() => resolve())
+          .catch(err => reject(err))
       })
     }
   },
