@@ -11,15 +11,17 @@ let playerModule = {
       return state.currentPlayer
     },
     getPlayerId: (state) => {
+      let currentPlayer = state.currentPlayer
       let playerId = null
-      if (state.currentPlayer.hasOwnProperty('name')) {
+      if (state.currentPlayer.id) {
         playerId = state.currentPlayer.id
       }
       return playerId
     },
     getPlayerName: (state) => {
+      let currentPlayer = state.currentPlayer
       let playerName = null
-      if (state.currentPlayer.hasOwnProperty('name')) {
+      if (currentPlayer.name) {
         playerName = state.currentPlayer.name
       }
       return playerName
@@ -27,17 +29,25 @@ let playerModule = {
   },
   mutations: {
     SET_PLAYER: (state, data) => {
-      let newPlayer = {
+      state.currentPlayer = {
         id: uuid(),
         name: data
       }
-      state.currentPlayer = newPlayer
     }
   },
   actions: {
     setPlayer: (context, data) => {
-      context.commit('SET_PLAYER', data)
-    }
+      return new Promise((resolve, reject) => {
+        try {
+          context.commit('SET_PLAYER', data);
+          context.dispatch('startGame');
+          resolve()
+        } catch (e) {
+          console.log(e);
+          reject(e)
+        }
+      })
+    },
   }
 }
 
