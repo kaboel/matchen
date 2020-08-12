@@ -1,15 +1,13 @@
 <template>
   <div>
-    <Dashboard/>
+    <RouterView/>
   </div>
 </template>
 
 <script>
-  import Dashboard from './components/Dashboard'
-
   const comp = {
     name: 'App',
-    components: { Dashboard }
+    components: {}
   }
 
   export default comp

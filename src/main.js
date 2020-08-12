@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
+import router from './router'
 
 // Assets Imports
 import 'bulma/css/bulma.min.css'
@@ -16,6 +17,7 @@ Vue.component('fa-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   store,
   render: h => h(App)
 }).$mount('#app')
