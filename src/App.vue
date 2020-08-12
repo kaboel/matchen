@@ -7,7 +7,16 @@
 <script>
   const comp = {
     name: 'App',
-    components: {}
+    components: {},
+    watch: {
+      '$route': {
+        deep: true,
+        immediate: true,
+        handler(to, from) {
+          document.title = to.meta.title || 'Matchen!'
+        }
+      }
+    }
   }
 
   export default comp
