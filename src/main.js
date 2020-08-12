@@ -8,9 +8,18 @@ import 'bulma/css/bulma.min.css'
 import './assets/css/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSmileWink } from '@fortawesome/free-regular-svg-icons'
 
+// far
+import {
+  faSmileWink
+} from '@fortawesome/free-regular-svg-icons'
 library.add( faSmileWink )
+
+// fas
+import {
+  faSpinner
+} from "@fortawesome/free-solid-svg-icons";
+library.add( faSpinner )
 
 Vue.component('fa-icon', FontAwesomeIcon)
 
