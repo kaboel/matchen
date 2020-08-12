@@ -1,15 +1,22 @@
 <template>
   <div>
-    <Dashboard/>
+    <RouterView/>
   </div>
 </template>
 
 <script>
-  import Dashboard from './components/Dashboard'
-
   const comp = {
     name: 'App',
-    components: { Dashboard }
+    components: {},
+    watch: {
+      '$route': {
+        deep: true,
+        immediate: true,
+        handler(to, from) {
+          document.title = to.meta.title || 'Matchen!'
+        }
+      }
+    }
   }
 
   export default comp
