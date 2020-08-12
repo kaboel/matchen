@@ -1,13 +1,14 @@
 <template>
-  <div class="hero has-background">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="app-title">
-          Matchen!
-        </h1>
-        <h2 class="subtitle">
-          A Matching Game.
-        </h2>
+  <div>
+    <div class="hero has-background">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="app-title">
+            Matchen!
+          </h1>
+          <h2 class="subtitle">
+            A Matching Game.
+          </h2>
           <div class="field">
             <div class="control has-icons-left">
               <input class="input is-medium"
@@ -21,7 +22,7 @@
           <div class="container pt-5"
                v-if="playerName!==''">
             <p class="subtitle is-5 is-marginless">
-              Hello,
+              Hi,
             </p>
             <p class="subtitle player-name is-1">
               {{ playerName+"!" }}
@@ -37,17 +38,21 @@
               </span>
             </button>
           </div>
+        </div>
       </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
   /* eslint-disable no-unused-vars */
   import { mapActions } from 'vuex'
+  import Footer from '../components/Footer'
 
   const comp = {
     name: 'Dashboard',
+    components: { Footer },
     data: () => ({
       playerName: '',
       startButton: false,

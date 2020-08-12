@@ -12,7 +12,7 @@ const router = new VueRouter({
       name: 'Dashboard',
       component: () => import('./views/Dashboard'),
       meta: {
-        title: 'Matchen! A Matching Game'
+        title: 'Matchen! A Matching Game.'
       },
       beforeEnter: async (to, from, next) => {
         try {
