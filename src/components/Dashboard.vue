@@ -1,8 +1,8 @@
 <template>
-  <section class="hero has-background">
+  <div class="hero has-background">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-1">
+        <h1 class="app-title">
           Matchen!
         </h1>
         <h2 class="subtitle">
@@ -13,41 +13,68 @@
             <div class="field">
               <div class="control has-icons-left">
                 <input class="input is-medium"
+                       v-model="playerName"
                        placeholder="What's your name?">
                 <span class="icon is-left">
               <fa-icon :icon="['far', 'smile-wink']"/>
             </span>
               </div>
             </div>
+            <div class="container pt-5"
+                 v-if="playerName!==''">
+              <p class="subtitle is-5 is-marginless">
+                Hello,
+              </p>
+              <p class="subtitle player-name is-1">
+                {{ playerName+"!" }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
   /* eslint-disable no-unused-vars */
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
 
   const comp = {
     name: 'Dashboard',
     data: () => ({
-      /* eslint-disable no-unused-labels */
+      playerName: '',
+      startButton: false,
+    }),
+    watch: {
+      playerName: {
+        deep: true,
+        immediate: true,
+        handler() {
 
-    })
+        }
+      }
+    },
+    methods: {
+      ...mapActions({
+        setPlayer: 'setPlayer',
+      }),
+    },
   }
 
   export default comp
 </script>
 
-<style>
-  .title {
+<style scoped>
+  .app-title {
+    font-size: 5rem;
+  }
+  .app-title, .player-name {
     font-family: 'Ubuntu Condensed', sans-serif !important;
-    font-weight: bold;
+    font-weight: bolder;
   }
   .hero {
-    margin: 20vh;
+    margin: 20vh auto;
     text-align: center;
   }
 </style>
